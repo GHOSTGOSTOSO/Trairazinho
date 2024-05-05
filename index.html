@@ -19,6 +19,7 @@
             background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwcpagTK6vLscmxVEbKxt9eWVIFnGIxRWCkkbzw3J9e9iCrb65XH5xw1w&s=10');
             background-size: cover;
             background-position: center;
+            padding: 20px; /* Aumenta a distância da imagem */
         }
         
         video {
@@ -39,8 +40,8 @@
         }
         
         button {
-            background-color: white;
-            color: black;
+            background-color: black; /* Altera a cor do botão para preto */
+            color: white; /* Altera a cor do texto para branco */
             font-size: 20px;
             padding: 15px 30px;
             border: none;
@@ -56,15 +57,19 @@
             Seu navegador não suporta vídeos HTML5.
         </video>
         <div class="content">
-            <button onclick="openPlayer()">Toque aqui, traíra!</button>
+            <button onclick="playPause()">Toque aqui, traíra!</button>
         </div>
     </div>
 
     <script>
         var myVideo = document.getElementById("myVideo");
 
-        function openPlayer() {
-            window.open("https://drive.google.com/file/d/1hls4T5lXRTAtdPyfgRrR6-Ui6gY_Io8P/view?usp=sharing", "_blank");
+        function playPause() {
+            if (myVideo.paused || myVideo.ended) {
+                myVideo.play();
+            } else {
+                myVideo.pause();
+            }
         }
     </script>
 </body>
