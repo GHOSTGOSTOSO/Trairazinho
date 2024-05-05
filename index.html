@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Site de Vídeo</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        
+        .background-video {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: black; /* Fundo preto */
+        }
+        
+        video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        
+        button {
+            background-color: white;
+            color: black;
+            font-size: 20px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-video">
+        <video id="myVideo" loop>
+            <source src="https://drive.google.com/uc?id=1hls4T5lXRTAtdPyfgRrR6-Ui6gY_Io8P" type="video/mp4">
+            Seu navegador não suporta vídeos HTML5.
+        </video>
+        <div class="content">
+            <button onclick="playPause()">Toque aqui, traíra!</button>
+        </div>
+    </div>
+
+    <script>
+        var myVideo = document.getElementById("myVideo");
+
+        function playPause() {
+            if (myVideo.paused || myVideo.ended) {
+                myVideo.play();
+            } else {
+                myVideo.pause();
+            }
+        }
+    </script>
+</body>
+</html>
