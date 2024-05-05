@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Você mesmo</title>
+    <title>KAUA GEYZIN</title>
     <style>
         body, html {
             margin: 0;
@@ -16,16 +16,17 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            background-color: black; /* Fundo preto */
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwcpagTK6vLscmxVEbKxt9eWVIFnGIxRWCkkbzw3J9e9iCrb65XH5xw1w&s=10');
+            background-size: cover;
+            background-position: center;
         }
         
-        .plyr {
+        video {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            transform: translate(-50%, -50%);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
         }
         
         .content {
@@ -34,6 +35,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
+            z-index: 999; /* Garante que o botão estará sobre o vídeo */
         }
         
         button {
@@ -46,29 +48,23 @@
             cursor: pointer;
         }
     </style>
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.4/plyr.css">
 </head>
 <body>
     <div class="background-video">
-        <video id="myVideo" class="plyr">
+        <video id="myVideo" loop>
             <source src="https://drive.google.com/uc?id=1hls4T5lXRTAtdPyfgRrR6-Ui6gY_Io8P" type="video/mp4">
             Seu navegador não suporta vídeos HTML5.
         </video>
         <div class="content">
-            <button onclick="playPause()">Toque aqui, traíra!</button>
+            <button onclick="openPlayer()">Toque aqui, traíra!</button>
         </div>
     </div>
 
-    <script src="https://cdn.plyr.io/3.6.4/plyr.js"></script>
     <script>
-        const player = new Plyr('#myVideo');
+        var myVideo = document.getElementById("myVideo");
 
-        function playPause() {
-            if (player.paused) {
-                player.play();
-            } else {
-                player.pause();
-            }
+        function openPlayer() {
+            window.open("https://drive.google.com/file/d/1hls4T5lXRTAtdPyfgRrR6-Ui6gY_Io8P/view?usp=sharing", "_blank");
         }
     </script>
 </body>
