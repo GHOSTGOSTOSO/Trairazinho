@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Site de Vídeo</title>
+    <title>Meu Você mesmo</title>
     <style>
         body, html {
             margin: 0;
@@ -19,7 +19,7 @@
             background-color: black; /* Fundo preto */
         }
         
-        video {
+        .plyr {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -46,10 +46,11 @@
             cursor: pointer;
         }
     </style>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.4/plyr.css">
 </head>
 <body>
     <div class="background-video">
-        <video id="myVideo" loop>
+        <video id="myVideo" class="plyr">
             <source src="https://drive.google.com/uc?id=1hls4T5lXRTAtdPyfgRrR6-Ui6gY_Io8P" type="video/mp4">
             Seu navegador não suporta vídeos HTML5.
         </video>
@@ -58,14 +59,15 @@
         </div>
     </div>
 
+    <script src="https://cdn.plyr.io/3.6.4/plyr.js"></script>
     <script>
-        var myVideo = document.getElementById("myVideo");
+        const player = new Plyr('#myVideo');
 
         function playPause() {
-            if (myVideo.paused || myVideo.ended) {
-                myVideo.play();
+            if (player.paused) {
+                player.play();
             } else {
-                myVideo.pause();
+                player.pause();
             }
         }
     </script>
