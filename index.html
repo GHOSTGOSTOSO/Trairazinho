@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu kaua e gay</title>
+    <title>Meu Site de Vídeo</title>
     <style>
         body, html {
             margin: 0;
@@ -46,25 +46,27 @@
             cursor: pointer;
         }
     </style>
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.4/plyr.css">
 </head>
 <body>
     <div class="background-video">
-        <video id="myVideo" class="plyr" controls loop>
+        <video id="myVideo" loop>
             <source src="https://drive.google.com/uc?id=1hls4T5lXRTAtdPyfgRrR6-Ui6gY_Io8P" type="video/mp4">
             Seu navegador não suporta vídeos HTML5.
         </video>
         <div class="content">
-            <button onclick="openVideo()">Toque aqui, traíra!</button>
+            <button onclick="playPause()">Toque aqui, traíra!</button>
         </div>
     </div>
 
-    <script src="https://cdn.plyr.io/3.6.4/plyr.js"></script>
     <script>
-        const player = new Plyr('#myVideo');
+        var myVideo = document.getElementById("myVideo");
 
-        function openVideo() {
-            window.open("https://drive.google.com/file/d/1hls4T5lXRTAtdPyfgRrR6-Ui6gY_Io8P/view?usp=sharing");
+        function playPause() {
+            if (myVideo.paused || myVideo.ended) {
+                myVideo.play();
+            } else {
+                myVideo.pause();
+            }
         }
     </script>
 </body>
