@@ -3,67 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KAUA GEYZIN</title>
+    <title>Tu e gay</title>
     <style>
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
+            overflow: hidden; /* Para ocultar barras de rolagem */
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNYY-MwUl6V5bnBnX9FBP6IWccHTeCKQoX_w&usqp=CAU');
+            background-size: cover;
+            background-repeat: no-repeat;
         }
         
         .background-video {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwcpagTK6vLscmxVEbKxt9eWVIFnGIxRWCkkbzw3J9e9iCrb65XH5xw1w&s=10');
-            background-size: cover;
-            background-position: center;
-            padding: 20px; /* Aumenta a distância da imagem */
-        }
-        
-        video {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            overflow: hidden;
         }
         
+        video {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+        }
+
         .content {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
-            z-index: 999; /* Garante que o botão estará sobre o vídeo */
         }
-        
+
         button {
-            background-color: black; /* Altera a cor do botão para preto */
-            color: white; /* Altera a cor do texto para branco */
+            background-color: white;
+            color: black;
             font-size: 20px;
             padding: 15px 30px;
             border: none;
             border-radius: 20px;
             cursor: pointer;
+            display: block; /* Para tornar o botão visível */
+        }
+
+        .real-text {
+            position: absolute;
+            color: white;
+            font-size: 100px;
+            font-weight: bold;
+            text-transform: uppercase;
+            opacity: 0;
+            pointer-events: none; /* Para evitar que o texto atrapalhe os cliques */
+            animation: fadeInOut 8s infinite; /* Animação para fazer o texto aparecer e desaparecer */
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% {opacity: 0;}
+            50% {opacity: 1;}
+        }
+
+        .real-text.hide {
+            display: none; /* Para esconder o texto */
         }
     </style>
 </head>
 <body>
     <div class="background-video">
         <video id="myVideo" loop>
-            <source src="https://gdurl.com/1hls4T5lXRTAtdPyfgRrR6-Ui6gY_Io8P" type="video/mp4">
+            <!-- Coloquei um vídeo de exemplo enquanto você fornece os links específicos -->
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
             Seu navegador não suporta vídeos HTML5.
         </video>
         <div class="content">
-            <button onclick="openPlayer()">Toque aqui, traíra!</button>
+            <button id="playButton" onclick="playPause()">Toque aqui, traíra!</button>
         </div>
+        <div class="real-text hide">REAL</div>
     </div>
 
     <script>
-        function openPlayer() {
-            window.open("https://videocandy.com/video-player.html", "_blank");
+        var myVideo = document.getElementById("myVideo");
+        var playButton = document.getElementById("playButton");
+        var realText = document.querySelector(".real-text");
+
+        function playPause() {
+            if (myVideo.paused || myVideo.ended) {
+                myVideo.src = "https://s9.api.pdfcandy.com/928673b369bb910a4af217ddbef9c189_transcoded.mp4";
+                myVideo.play();
+                playButton.style.display = "none"; // Esconde o botão quando o vídeo começa a ser reproduzido
+                realText.classList.remove("hide"); // Exibe o texto "REAL"
+            } else {
+                myVideo.pause();
+            }
         }
     </script>
 </body>
