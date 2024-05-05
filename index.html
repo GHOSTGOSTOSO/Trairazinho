@@ -54,19 +54,13 @@
             Seu navegador não suporta vídeos HTML5.
         </video>
         <div class="content">
-            <button onclick="playPause()">Toque aqui, traíra!</button>
+            <button onclick="openVideo()">Toque aqui, traíra!</button>
         </div>
     </div>
 
     <script>
-        var myVideo = document.getElementById("myVideo");
-
-        function playPause() {
-            if (myVideo.paused || myVideo.ended) {
-                myVideo.play();
-            } else {
-                myVideo.pause();
-            }
+        function openVideo() {
+            window.open("https://drive.google.com/uc?id=1hls4T5lXRTAtdPyfgRrR6-Ui6gY_Io8P");
         }
     </script>
 </body>
