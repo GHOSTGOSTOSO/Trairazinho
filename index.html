@@ -53,23 +53,17 @@
 <body>
     <div class="background-video">
         <video id="myVideo" loop>
-            <source src="https://gdurl.com/https://1hls4T5lXRTAtdPyfgRrR6-Ui6gY_Io8P" type="video/mp4">
+            <source src="https://gdurl.com/1hls4T5lXRTAtdPyfgRrR6-Ui6gY_Io8P" type="video/mp4">
             Seu navegador não suporta vídeos HTML5.
         </video>
         <div class="content">
-            <button onclick="playPause()">Toque aqui, traíra!</button>
+            <button onclick="openPlayer()">Toque aqui, traíra!</button>
         </div>
     </div>
 
     <script>
-        var myVideo = document.getElementById("myVideo");
-
-        function playPause() {
-            if (myVideo.paused || myVideo.ended) {
-                myVideo.play();
-            } else {
-                myVideo.pause();
-            }
+        function openPlayer() {
+            window.open("https://yourplayerurl.com", "_blank");
         }
     </script>
 </body>
